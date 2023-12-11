@@ -51,7 +51,7 @@ df <- df %>%
 # new summarization data frame 
 df_all_time <- df %>% 
   group_by(State) %>% 
-  summarise("All time average percent of bachelor's degree or higher" = mean(`Percent of bachelor's degree or higher`, na.rm = TRUE), "All time average percent of smokers" = mean(`Percentage of E-cig user`, na.rm = TRUE))
+  summarise("All time average percent of bachelor's degree or higher" = mean(`Percent of bachelor's degree or higher`, na.rm = TRUE), "All time average percent of smokers" = mean(`Percentage of cig user`, na.rm = TRUE))
 
 df_all_time_ecig <- df %>% 
   filter(Year == 2016 | Year == 2017) %>% 

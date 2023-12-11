@@ -165,5 +165,5 @@ names(state_year_education) <- c("State", "Percent of bachelor's degree or highe
 
 # Exporting the combined dataframe as .csv
 
-write.csv(state_year_education, "/Users/shinnosukechuman/Documents/INFO201/final-projects-shinnosukec/state_year_education.csv", row.names=FALSE)
+# write.csv(state_year_education, "/Users/shinnosukechuman/Documents/INFO201/final-projects-shinnosukec/state_year_education.csv", row.names=FALSE)
 

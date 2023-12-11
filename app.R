@@ -113,15 +113,16 @@ interactive_view1 <- fluidPage(
   br(),
   p(HTML(
     paste(
-      "In this scatterplot, each data point represents a state of the United States. It illustrates the relationship between the average percentage of bachelor's degrees or higher and the average percentage of smokers in its state's population. The average is calculated based on data from 2011 to 2019. <br>
-
-From this scatter plot, a very clear trend can be observed - as the percentage of smokers increases, the percentage of bachelor's degrees or higher decreases. <br>
-
-This trend implies that lower education levels correlate with higher smoking rates. <br>
-
-A correlation coefficient computed using the cor() function is",
-      cor_avg,
-      "which is surprisingly low after looking at this obvious trend. This is most likely because of outliers. District of Columbia has a spectacularly high education level compared to other states with a similar smoking population. On the other hand, Puerto Rico has a very low smoking population despite its education level is relatively low."
+      "This scatterplot is a compelling graphical representation of the relationship between the average percentage of individuals with bachelor’s degrees or higher and the average percentage of smokers in each state of the United States. The data is averaged over a period from 2011 to 2019, providing a broad and comprehensive view of this relationship across the nation.<br><br>
+In the scatterplot, each data point is distinctively colored, representing one of the U.S. states or territories. The vertical axis of the plot quantifies the percentage of the population with bachelor's degrees or higher, while the horizontal axis measures the percentage of smokers within the state's population. The positioning of each data point thus reflects the unique combination of these two variables for each state.<br><br>
+A trend is evident upon examining the scatterplot: there is a consistent negative correlation between the level of higher education and smoking rates. This trend is observed as a pattern where states with higher percentages of bachelor's degree holders tend to have lower percentages of smokers, and vice versa. The data points largely follow this downward trajectory, illustrating the inverse relationship between educational attainment and smoking prevalence.<br><br>
+However, the correlation coefficient calculated using the cor() function stands at
+", cor_avg, "which, at first glance, seems surprisingly low given the apparent trend. This discrepancy likely arises due to the presence of outliers that impact the overall correlation. Two notable examples stand out:<br><br>
+1. District of Columbia: This area shows a particularly high level of education, with an exceptional percentage of residents holding bachelor's degrees or higher, especially when compared to other states with a similar proportion of smokers. D.C. is an outlier on the higher education axis, skewing the data.<br><br>
+2. Puerto Rico: On the opposite end, Puerto Rico presents a low percentage of smokers, but its level of higher education attainment is not correspondingly high. This makes Puerto Rico an outlier in terms of smoking rates relative to education levels.<br><br>
+These outliers, particularly prominent in their deviation from the general trend, play a significant role in affecting the calculated correlation coefficient. Without these outliers, the negative correlation might appear stronger.<br><br>
+In summary, this scatterplot not only displays a general negative correlation between higher education levels and smoking rates across the U.S. states but also highlights the impact of outliers on statistical correlations. It serves as a thought-provoking visual analysis tool, showcasing the nuances in the relationship between education and health-related behaviors.<br><br>
+"
     )
   )),
 )
@@ -149,16 +150,15 @@ interactive_view2 <- fluidPage(
   h3("Observation and Analysis"),
   br(),
   p(HTML(
-    paste(
-      "This scatterplot specifically focuses on e-cigarette usage. The dataset only provides data about e-cigarettes fully in 2016 and 2017. Therefore, it is plotted based sorely on these two years. <br>
-
-From this scatter plot, a familiar trend can be observed - as the percentage of cigarette users increases, the percentage of bachelor's degrees or higher decreases. However, by eyeballing the trend, it seems weaker. The points are more spread out making it harder to see the familiar declining trend line. <br>
-
-Though the trend is not as clear as the cigarrete users scatterplot, it still implies that lower education levels correlate with higher smoking rates. <br>
-
-As for the previous plot, a correlation coefficient computed using the cor() function is",
+    paste("This scatterplot offers an insightful visual representation of the relationship between e-cigarette usage and the average percentage of individuals holding bachelor’s degrees or higher in each state of the United States. The data is specifically drawn from the years 2016 and 2017 due to the availability of e-cigarette usage data, a period during which e-cigarettes gained significant popularity.<br><br>
+In the plot, each state is represented by a unique data point. As for the previous scatterplot, the vertical axis measures the percentage of the population with at least a bachelor’s degree, while the horizontal axis quantifies the percentage of e-cigarette users within each state. This setup allows for a direct comparison between educational attainment and the prevalence of e-cigarette usage across different states.<br><br>
+A notable trend can be observed in the scatterplot, though it appears less pronounced than in the traditional cigarette usage scatterplot. As the percentage of e-cigarette users increases in each state, there tends to be a decrease in the percentage of individuals with higher educational degrees. However, this negative correlation is subtler and the data points are more spread apart, making the declining trend line less apparent. This spread suggests a weaker association between education levels and e-cigarette usage compared to traditional cigarettes.<br><br>
+Despite the weaker trend, the scatterplot still indicates that higher education levels are generally associated with lower rates of e-cigarette usage, even though to a lesser extent than with traditional cigarette usage. This observation hints at some distinct characteristics in the consumption patterns of e-cigarettes as opposed to traditional tobacco products.<br><br>
+The correlation coefficient calculated using the cor() function is",
       cor_avg_ecig,
-      "which is low due to outliers - the District of Columbia and Puerto Rico."
+      "which is a relatively low value. Again, it can be attributed to outliers such as the District of Columbia and Puerto Rico. The District of Columbia stands out with high educational attainment but moderate e-cigarette usage, while Puerto Rico shows low e-cigarette usage despite lower levels of higher education.<br><br>
+In conclusion, this scatterplot provides a nuanced view of the relationship between education levels and e-cigarette usage in the United States. While it confirms a negative correlation similar to that observed with traditional cigarettes, the connection is less pronounced, reflecting the unique position of e-cigarettes in American society. Despite claims by media and manufacturers about the reduced harm of e-cigarettes compared to traditional cigarettes, the data suggests that societal attitudes towards the health impacts of smoking, whether traditional or electronic, are influenced by educational background, although in complex and varied ways.<br><br>
+"
     )
   ))
 )
@@ -190,9 +190,18 @@ interactive_view3 <- fluidPage(
   
   h3("Observation and Analysis"),
   br(),
-  p(HTML(paste("This line graph shows the trend of the percentage of bachelor's degrees or higher and the percentage of cigarette users from 2011 and 2019. <br>
-For the average of all states, it can be observed that the percentage of bachelor's degrees or higher has increased. On the other hand, the percentage of cigarette users has decreased over the years. This trend can also be seen in most states when it is individually observed. <br>
-These line graphs indicate that the average education level of people has increased while cigarette users decreased in the United States.")))
+  p(HTML(paste("The line graph illustrates two trends over a nine-year period, from 2011 to 2019, across the United States. The first trend line in red represents the percentage of the population with bachelor’s degrees or higher, showcasing a clear and consistent upward trajectory. This increase is gradual yet steady, suggesting a significant rise in higher education attainment among Americans during this period.<br><br>
+
+In contrast, the second trend line in blue on the graph represents the percentage of cigarette users in the same timeframe, which demonstrates a converse, downward trend. Starting from a higher percentage in 2011, there is a noticeable decline in cigarette usage year after year, culminating in a significantly lower percentage by 2019. This decrease is relatively smooth and continuous, indicating a substantial shift in health habits among the populace.<br><br>
+
+The graph not only presents these trends on a national average but also provides state-by-state breakdowns (please select an individual state from the dropdown menu). Interestingly, the patterns remain consistent in most states, with a few exceptions that highlight regional differences. These variations are subtly indicated on the graph, providing a nuanced understanding of the trends across different geographical areas.<br><br>
+
+The colors chosen for the graph are distinct, with the education trend represented in blue and the smoking trend in red, enhancing readability and comprehension. The axes are clearly labeled, with the horizontal axis representing the years from 2011 to 2019 and the vertical axis denoting the percentage values for both education and cigarette usage.<br><br>
+
+The graph suggests that higher education may play a pivotal role in promoting healthier lifestyle choices. It acts as a compelling piece of evidence to support the notion that improvements in education correlate with positive shifts in public health behaviors.
+
+Overall, this line graph is not only a depiction of statistical data but also a narrative of societal progress in education and health awareness within the United States over nearly a decade. It serves as a testament to the evolving attitudes and behaviors of Americans, highlighting the beneficial impact of education on lifestyle choices and health.<br><br>
+")))
   
 )
 
