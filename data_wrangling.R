@@ -51,7 +51,40 @@ df <- df %>%
 # new summarization data frame 
 df_all_time <- df %>% 
   group_by(State) %>% 
-  summarise("All time average percent of bachelor's degree or higher" = mean(`Percent of bachelor's degree or higher`, na.rm = TRUE), "All time average percent of smokers" = mean(`Percentage of E-cig user` + `Percentage of cig user`, na.rm = TRUE))
+  summarise("All time average percent of bachelor's degree or higher" = mean(`Percent of bachelor's degree or higher`, na.rm = TRUE), "All time average percent of smokers" = mean(`Percentage of E-cig user`, na.rm = TRUE))
 
-write.csv(df, file = "df.csv", row.names = FALSE)
+df_all_time_ecig <- df %>% 
+  filter(Year == 2016 | Year == 2017) %>% 
+  group_by(State) %>% 
+  summarise(edulevel = mean(`Percent of bachelor's degree or higher`, na.rm = TRUE), ecig = mean(`Percentage of E-cig user`, na.rm = TRUE))
+
+df_by_year <- df %>% 
+  group_by(Year) %>% 
+  summarise(`Percent of bachelor's degree or higher` = mean(`Percent of bachelor's degree or higher`, na.rm = TRUE), `Percentage of cig user` = mean(`Percentage of cig user`, na.rm = TRUE)) 
+
+df_by_year <- df_by_year %>% 
+  mutate(State = "All states average", .after = Year)
+
+df_temp <- df %>% 
+  select(Year, State, `Percent of bachelor's degree or higher`, `Percentage of cig user`)
+  
+df_view3 <- rbind(df_by_year, df_temp)
+
+# CALCULATIONS
+
+cor_avg <- round(cor(df_all_time$`All time average percent of smokers`, df_all_time$`All time average percent of bachelor's degree or higher`), digits = 2)
+
+cor_avg_ecig <- round(cor(df_all_time_ecig$ecig, df_all_time_ecig$edulevel), digits = 2)
+
+# FUNCTIONS
+
+get_alltime_stats <- function(state) {
+  selected <- filter(df_all_time, State == state)
+  return(HTML(paste("bachelor's degree or higher:"), round(selected$`All time average percent of bachelor's degree or higher`, digits = 1), "<br>", "smokers:", round(selected$`All time average percent of smokers`, digits = 1)))
+}
+
+get_alltime_stats_ecig <- function(state) {
+  selected <- filter(df_all_time_ecig, State == state)
+  return(HTML(paste("bachelor's degree or higher:"), round(selected$edulevel, digits = 1), "<br>", "E-cig smokers:", round(selected$ecig, digits = 1)))
+}
 

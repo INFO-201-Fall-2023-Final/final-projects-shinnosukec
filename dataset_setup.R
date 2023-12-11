@@ -77,8 +77,8 @@ df2015 <- read.csv("ACSST1Y2015.S1501-2023-10-31T020223.csv")
 
 df2015_per_bach <- df2015 %>% 
   filter(Label..Grouping. == "Percent bachelor's degree or higher") %>% 
-  select(matches("Total")) %>% 
-  rename_with(~str_remove(., "..Total..Estimate"))
+  select(matches("..Percent..Estimate")) %>% 
+  rename_with(~str_remove(., "..Percent..Estimate"))
 
 df2015_per_bach2 <- data.frame(t(df2015_per_bach))
 
@@ -94,8 +94,8 @@ df2016 <- read.csv("ACSST1Y2016.S1501-2023-10-31T020503.csv")
 
 df2016_per_bach <- df2016 %>% 
   filter(Label..Grouping. == "Percent bachelor's degree or higher") %>% 
-  select(matches("Total")) %>% 
-  rename_with(~str_remove(., "..Total..Estimate"))
+  select(matches("..Percent..Estimate")) %>% 
+  rename_with(~str_remove(., "..Percent..Estimate"))
 
 df2016_per_bach2 <- data.frame(t(df2016_per_bach))
 
@@ -165,5 +165,5 @@ names(state_year_education) <- c("State", "Percent of bachelor's degree or highe
 
 # Exporting the combined dataframe as .csv
 
-write.csv(state_year_education, "/Users/shinnosukechuman/Documents/INFO201/Final Project BC-1/state_year_education.csv", row.names=FALSE)
+write.csv(state_year_education, "/Users/shinnosukechuman/Documents/INFO201/final-projects-shinnosukec/state_year_education.csv", row.names=FALSE)
 
